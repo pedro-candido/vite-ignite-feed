@@ -1,5 +1,7 @@
 import { ThemeProvider } from "styled-components";
 
+import "./translate/i18n";
+
 import GlobalStyle from "./global/css";
 import theme from "./global/theme";
 
@@ -11,6 +13,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
+        <></>
       </ThemeProvider>
     </div>
   );
