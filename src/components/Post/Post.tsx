@@ -7,20 +7,18 @@ import {
   PublishedAt,
 } from "./Post.styles";
 
+import { AuthorProps, CommentProps } from "../../typings";
+
 import t from "../../translate/i18n";
 
-interface Author {
-  name: string;
-  job: string;
-}
-
 interface PostProps {
-  author: Author;
-  children: React.ReactNode;
+  author: AuthorProps;
+  content: React.ReactNode;
+  comments: CommentProps[];
   publishTime: Date;
 }
 
-const Post = ({ author, publishTime, children }: PostProps) => {
+const Post = ({ author, publishTime, content, comments }: PostProps) => {
   return (
     <Container>
       <Header>
@@ -29,9 +27,9 @@ const Post = ({ author, publishTime, children }: PostProps) => {
           <Author.Name>{author.name}</Author.Name>
           <Author.Job>{author.job}</Author.Job>
         </div>
-        <PublishedAt>Publicado há {publishTime}</PublishedAt>
+        <PublishedAt>Publicado há {String(publishTime)}</PublishedAt>
       </Header>
-      <div>{children}</div>
+      <div>{content}</div>
       <Divider />
       <Feedback.Container>
         <Feedback.Title></Feedback.Title>
