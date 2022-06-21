@@ -38,7 +38,7 @@ const Post = ({ author, publishTime, children }: PostProps) => {
           </>
         </PublishedAt>
       </Header>
-      <div>{children}</div>
+      <div>{content}</div>
       <Divider />
       <Feedback.Container>
         <Feedback.Title></Feedback.Title>

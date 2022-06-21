@@ -4,9 +4,9 @@ export const Container = styled.main``;
 
 export const Divider = styled.div``;
 
-export const Header = styled.header``;
-
 export const PublishedAt = styled.p``;
+
+export const Header = styled.div``;
 
 export const Author = {
   Container: styled.div``,
