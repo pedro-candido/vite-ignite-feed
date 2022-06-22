@@ -34,7 +34,7 @@ const Post = ({ author, publishTime, children }: PostProps) => {
         </div>
         <PublishedAt>
           <>
-            {i18n.t("publishedAt")} {publishedAgo(publishTime)}
+            {i18n.t("publishedAt")} {publishedAt(publishTime)}
           </>
         </PublishedAt>
       </Header>

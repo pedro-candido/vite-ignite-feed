@@ -11,6 +11,6 @@ const i18nConfig = {
   debug: true,
 };
 
-i18n.use(initReactI18next).init(i18nConfig);
+i18n.use(LanguageDetector).use(initReactI18next).init(i18nConfig);
 
 export default i18n;
