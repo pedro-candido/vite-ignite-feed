@@ -1,3 +1,5 @@
+import { ButtonProps } from "./Button.types";
+
 const Button = ({
   disabled,
   size,
@@ -9,7 +11,9 @@ const Button = ({
 
   return (
     <div>
-      <button onClick={onClick}>{text}</button>
+      <button data-testid="button_testId" onClick={onClick} disabled={disabled}>
+        {text}
+      </button>
     </div>
   );
 };
