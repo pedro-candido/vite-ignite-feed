@@ -7,18 +7,23 @@ import {
   PublishedAt,
 } from "./Post.styles";
 
-import { AuthorProps, CommentProps } from "../../typings";
+import i18n from "@i18n";
+import { publishedAgo } from "src/utils/date";
 
-import t from "../../translate/i18n";
+interface AuthorProps {
+  name: string;
+  job: string;
+}
 
 interface PostProps {
   author: AuthorProps;
-  content: React.ReactNode;
-  comments: CommentProps[];
+  children: React.ReactNode;
   publishTime: Date;
 }
 
-const Post = ({ author, publishTime, content, comments }: PostProps) => {
+const Post = ({ author, publishTime, children }: PostProps) => {
+  console.log(publishTime);
+
   return (
     <Container>
       <Header>
@@ -27,15 +32,23 @@ const Post = ({ author, publishTime, content, comments }: PostProps) => {
           <Author.Name>{author.name}</Author.Name>
           <Author.Job>{author.job}</Author.Job>
         </div>
-        <PublishedAt>Publicado há {String(publishTime)}</PublishedAt>
+        <PublishedAt>
+          <>
+            {i18n.t("publishedAt")} {publishedAt(publishTime)}
+          </>
+        </PublishedAt>
       </Header>
-      <div>{content}</div>
+      <div>{children}</div>
       <Divider />
       <Feedback.Container>
         <Feedback.Title></Feedback.Title>
         <Feedback.TextArea></Feedback.TextArea>
-        <Feedback.Button>{t("publish")}</Feedback.Button>
+        <Feedback.Button>
+          <>{i18n.t("publish")}</>
+        </Feedback.Button>
       </Feedback.Container>
     </Container>
   );
 };
+
+export default Post;
